@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def index
     @reviews = Review.all
   end
@@ -18,9 +17,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
     @movie = Movie.find(params[:movie_id])
-    # byebug
     @review = @movie.reviews.new(review_params.merge(user_id: current_user.id))
     if @review.save
       redirect_to @movie
@@ -31,7 +28,6 @@ class ReviewsController < ApplicationController
 
   def update
     find_review
-
     if @review.update(review_params)
       redirect_to @review
     else
@@ -42,7 +38,6 @@ class ReviewsController < ApplicationController
   def destroy
     find_review
     @review.destroy
-
     redirect_to movies_path
   end
 
