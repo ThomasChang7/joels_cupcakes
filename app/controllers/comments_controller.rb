@@ -28,7 +28,6 @@ class CommentsController < ApplicationController
 
   def update
     find_comment
-    
     if @comment.update(comment_params)
       redirect_to @movie
     else
@@ -38,7 +37,6 @@ class CommentsController < ApplicationController
 
   def destroy
     find_comment
-
     @comment.destroy
     redirect_to movies_path
   end

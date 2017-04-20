@@ -1,13 +1,9 @@
 class UsersController < ApplicationController
-
-
   def index
     @users = User.all
   end
 
   def show
-      
-
     @activities = PublicActivity::Activity.all.order("created_at desc").limit(5)
     @movies_to_watch = current_user.movies_to_watch.all
     @favorites = current_user.favorites.all
@@ -16,10 +12,7 @@ class UsersController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
-
-
 
   def new
     @user = User.new
@@ -53,7 +46,6 @@ class UsersController < ApplicationController
 
     redirect_to users_path
   end
-
 
   private
   def user_params

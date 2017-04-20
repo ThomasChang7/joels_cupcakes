@@ -25,21 +25,6 @@ class MoviesController < ApplicationController
       redirect_to '/'
     end
   end
-  #     if !Movie.search(params[:search]).empty?
-  #       @movies = Movie.search(params[:search]).order("created_at DESC")
-  #     else
-  #       string = params[:search].split(" ").join("+")
-  #       movies = JSON.parse open("http://www.omdbapi.com/?s=" + string + "&plot=full").read
-  #       movies["Search"].each do |movie|
-  #       movie = Movie.create!( { title: movie["Title"]} )
-  #     end
-  #       @movies = Movie.search(params[:search]).order("created_at DESC")
-  #     end
-  #   else
-  #     @movies = Movie.all.order("created_at DESC")
-  #     redirect_to '/'
-  #   end
-  # end
 
   def favorite
     movie = Movie.find(params[:id])
